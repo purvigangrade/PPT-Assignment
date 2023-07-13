@@ -14,17 +14,16 @@
 // </aside>
 
 //*************************ANSWER -1 ****************************** */
-// function arraynum (num,target){
+function arraynum (num,target){
+for (let i=0; i<= num.length; i++){
+    if( num[i] + num[i+1] === target){
+        return [i, i+1];
+    }
+}
+}
 
-// for (let i=0; i<= num.length; i++){
-//     if( num[i] + num[i+1] === target){
-//         return [i, i+1];
-//     }
-// }
-// }
-
-// const nums = [2,7,11,15]
-// console.log(arraynum(nums, 9));
+const nums = [2,7,11,15]
+console.log(arraynum(nums, 9));
 
 //******************************************************************* */
 
@@ -45,23 +44,23 @@
 // </aside>
 
 //***************************ANSWER -2 **************************************** */
-// function removeElement(num, val) {
-//     let count = 0;
-//   for(let i=0; i<num.length; i++){
-//     if(num[i] !== val){
-//         num[count] = num[i];
-//         count++;
-//     }
-//   }
-//   return count;
+function removeElement(num, val) {
+    let count = 0;
+  for(let i=0; i<num.length; i++){
+    if(num[i] !== val){
+        num[count] = num[i];
+        count++;
+    }
+  }
+  return count;
 
-// }
+}
 
-// const nums = [3,2,2,3];
-// const result = removeElement(nums, 3);
+const nums = [3,2,2,3];
+const result = removeElement(nums, 3);
 
-// console.log("Output:", result);
-// console.log("nums:", nums.slice(0, result));
+console.log("Output:", result);
+console.log("nums:", nums.slice(0, result));
 //**************************************************************************************** */
 
 // 💡 **Q3.** Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
@@ -74,31 +73,31 @@
 // Output: 2
 
 //******************************ANSWER - 3**************************************************** */
-// function searchInsert(nums, target) {
-//     let left = 0;
-//     let right = nums.length - 1;
+function searchInsert(nums, target) {
+    let left = 0;
+    let right = nums.length - 1;
 
-//     while (left <= right) {
-//       const mid = Math.floor((left + right) / 2);
+    while (left <= right) {
+      const mid = Math.floor((left + right) / 2);
 
-//       if (nums[mid] === target) {
-//         return mid;
-//       } else if (nums[mid] < target) {
-//         left = mid + 1;
-//       } else {
-//         right = mid - 1;
-//       }
-//     }
+      if (nums[mid] === target) {
+        return mid;
+      } else if (nums[mid] < target) {
+        left = mid + 1;
+      } else {
+        right = mid - 1;
+      }
+    }
 
-//     return left;
-//   }
+    return left;
+  }
 
 //   // Example usage
-//   const nums = [1, 3, 5, 6];
-//   const target = 5;
-//   const result = searchInsert(nums, target);
+  const nums = [1, 3, 5, 6];
+  const target = 5;
+  const result = searchInsert(nums, target);
 
-//   console.log("Output:", result);
+  console.log("Output:", result);
 //********************************************************************************** */
 
 // 💡 **Q4.** You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading 0's.
@@ -115,26 +114,26 @@
 // Thus, the result should be [1,2,4].
 
 //***********************ANSWER 4 ********************************************************* */
-// function plusOne(digits) {
-//     const n = digits.length;
+function plusOne(digits) {
+    const n = digits.length;
 
-//     for (let i = n - 1; i >= 0; i--) {
-//       if (digits[i] < 9) {
-//         digits[i]++;
-//         return digits;
-//       }
+    for (let i = n - 1; i >= 0; i--) {
+      if (digits[i] < 9) {
+        digits[i]++;
+        return digits;
+      }
 
-//       digits[i] = 0;
-//     }
+      digits[i] = 0;
+    }
 
-//     return digits;
-//   }
+    return digits;
+  }
 
 //   // Example usage
-//   const digits = [1, 2, 3];
-//   const result = plusOne(digits);
+  const digits = [1, 2, 3];
+  const result = plusOne(digits);
 
-//   console.log("Output:", result);
+  console.log("Output:", result);
 
 //************************************************************************************** */
 
@@ -153,40 +152,40 @@
 
 //**********************ANSWER - 5******************************************************** */
 
-//  function merge(nums1, m, nums2, n) {
-//     let i = m - 1; // Pointer for nums1
-//     let j = n - 1; // Pointer for nums2
-//     let k = m + n - 1; // Pointer for merged array
+ function merge(nums1, m, nums2, n) {
+    let i = m - 1; // Pointer for nums1
+    let j = n - 1; // Pointer for nums2
+    let k = m + n - 1; // Pointer for merged array
 
-//     while (i >= 0 && j >= 0) {
-//       if (nums1[i] >= nums2[j]) {
-//         nums1[k] = nums1[i];
-//         i--;
-//       } else {
-//         nums1[k] = nums2[j];
-//         j--;
-//       }
-//       k--;
-//     }
+    while (i >= 0 && j >= 0) {
+      if (nums1[i] >= nums2[j]) {
+        nums1[k] = nums1[i];
+        i--;
+      } else {
+        nums1[k] = nums2[j];
+        j--;
+      }
+      k--;
+    }
 
 //     // Copy remaining elements from nums2 to nums1
-//     while (j >= 0) {
-//       nums1[k] = nums2[j];
-//       j--;
-//       k--;
-//     }
+    while (j >= 0) {
+      nums1[k] = nums2[j];
+      j--;
+      k--;
+    }
 
-//     return nums1;
-//   }
+    return nums1;
+  }
 
 //   // Example usage
-//   const nums1 = [1, 2, 3, 0, 0, 0];
-//   const m = 3;
-//   const nums2 = [2, 5, 6];
-//   const n = 3;
+  const nums1 = [1, 2, 3, 0, 0, 0];
+  const m = 3;
+  const nums2 = [2, 5, 6];
+  const n = 3;
 
-//   merge(nums1, m, nums2, n);
-//   console.log("Output:", nums1);
+  merge(nums1, m, nums2, n);
+  console.log("Output:", nums1);
 
 //********************************************************************** */
 
@@ -198,19 +197,19 @@
 // Output: true
 
 //********************************ANSWER 6 *********************************** */
-// function dupValues(nums) {
-//   for (let i = 0; i < nums.length; i++) {
-//     for (j = 0; j < i; j++) {
-//       if (nums[i] == nums[j]) {
-//         return true;
-//       }
-//     }
-//   }
-//   return false;
-// }
-// nums = [1, 2, 3,1];
-// const result = dupValues(nums);
-// console.log(result);
+function dupValues(nums) {
+  for (let i = 0; i < nums.length; i++) {
+    for (j = 0; j < i; j++) {
+      if (nums[i] == nums[j]) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+nums = [1, 2, 3,1];
+const result = dupValues(nums);
+console.log(result);
 //******************************************************************************** */
 
 // 💡 **Q7.** Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the nonzero elements.
@@ -223,23 +222,23 @@
 
 //******************************ANSWER 7******************************************* */
 
-// function moveZeroes(nums) {
-//     let left = 0; // Pointer for the leftmost zero
+function moveZeroes(nums) {
+    let left = 0; // Pointer for the leftmost zero
   
-//     for (let i = 0; i < nums.length; i++) {
-//       if (nums[i] !== 0) {
-//         // Swap the nonzero element with the leftmost zero
-//         [nums[i], nums[left]] = [nums[left], nums[i]];
-//         left++;
-//       }
-//     }
-//   }
+    for (let i = 0; i < nums.length; i++) {
+      if (nums[i] !== 0) {
+        // Swap the nonzero element with the leftmost zero
+        [nums[i], nums[left]] = [nums[left], nums[i]];
+        left++;
+      }
+    }
+  }
   
 //   // Example usage
-//   const nums = [0, 1, 0, 3, 12];
-//   moveZeroes(nums);
+  const nums = [0, 1, 0, 3, 12];
+  moveZeroes(nums);
   
-//   console.log("Output:", nums);
+  console.log("Output:", nums);
  //*********************************************************************************** */
  
 
