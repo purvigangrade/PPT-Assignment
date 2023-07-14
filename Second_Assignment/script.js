@@ -14,23 +14,23 @@
 
 //**********************************ANSER-1********************************************** */
 
-// function arrayPairSum(nums) {
-//     // Sort the array in ascending order
-//     nums.sort((a, b) => a - b);
+function arrayPairSum(nums) {
+    // Sort the array in ascending order
+    nums.sort((a, b) => a - b);
   
-//     let sum = 0;
-//     // Iterate over the sorted array and sum up every alternate element
-//     for (let i = 0; i < nums.length; i += 2) {
-//       sum += nums[i];
-//     }
+    let sum = 0;
+    // Iterate over the sorted array and sum up every alternate element
+    for (let i = 0; i < nums.length; i += 2) {
+      sum += nums[i];
+    }
   
-//     return sum;
-//   }
+    return sum;
+  }
   
-//   // Test case
-//   const nums = [1, 4, 3, 2];
-//   const maxSum = arrayPairSum(nums);
-//   console.log(maxSum); // Output: 4
+  // Test case
+  const nums = [1, 4, 3, 2];
+  const maxSum = arrayPairSum(nums);
+  console.log(maxSum); // Output: 4
 
 //****************************************************************************************** */
 // Question 2
@@ -47,21 +47,21 @@
 // Explanation: Alice can only eat 6 / 2 = 3 candies. Since there are only 3 types, she can eat one of each type.
 
 //********************************ANSWER -2 ************************************************ */
-// function distributeCandies(candyType) {
-//     // Calculate the maximum number of unique candies Alice can eat
-//     const maxCandies = candyType.length / 2;
+function distributeCandies(candyType) {
+    // Calculate the maximum number of unique candies Alice can eat
+    const maxCandies = candyType.length / 2;
   
-//     // Count the number of unique candy types using a Set
-//     const uniqueCandies = new Set(candyType);
+    // Count the number of unique candy types using a Set
+    const uniqueCandies = new Set(candyType);
   
-//     // Return the minimum of maxCandies and the count of unique candy types
-//     return Math.min(maxCandies, uniqueCandies.size);
-//   }
+    // Return the minimum of maxCandies and the count of unique candy types
+    return Math.min(maxCandies, uniqueCandies.size);
+  }
   
-//   // Test case
-//   const candyType = [1, 1, 2, 2, 3, 3];
-//   const maxDifferentCandies = distributeCandies(candyType);
-//   console.log(maxDifferentCandies); // Output: 3
+  // Test case
+  const candyType = [1, 1, 2, 2, 3, 3];
+  const maxDifferentCandies = distributeCandies(candyType);
+  console.log(maxDifferentCandies); // Output: 3
 //******************************************************************************************* */  
 // Question 3
 // We define a harmonious array as an array where the difference between its maximum value
@@ -78,30 +78,30 @@
 
 // Explanation: The longest harmonious subsequence is [3,2,2,2,3].
 //************************ANSWER - 3********************* */
-// function findLHS(nums) {
-//     const frequencyMap = new Map();
-//     let longestSubsequenceLength = 0;
+function findLHS(nums) {
+    const frequencyMap = new Map();
+    let longestSubsequenceLength = 0;
   
-//     // Count the frequency of each number
-//     for (const num of nums) {
-//       frequencyMap.set(num, (frequencyMap.get(num) || 0) + 1);
-//     }
+    // Count the frequency of each number
+    for (const num of nums) {
+      frequencyMap.set(num, (frequencyMap.get(num) || 0) + 1);
+    }
   
-//     // Check the length of each possible harmonious subsequence
-//     for (const [num, count] of frequencyMap) {
-//       if (frequencyMap.has(num + 1)) {
-//         const currentSubsequenceLength = count + frequencyMap.get(num + 1);
-//         longestSubsequenceLength = Math.max(longestSubsequenceLength, currentSubsequenceLength);
-//       }
-//     }
+    // Check the length of each possible harmonious subsequence
+    for (const [num, count] of frequencyMap) {
+      if (frequencyMap.has(num + 1)) {
+        const currentSubsequenceLength = count + frequencyMap.get(num + 1);
+        longestSubsequenceLength = Math.max(longestSubsequenceLength, currentSubsequenceLength);
+      }
+    }
   
-//     return longestSubsequenceLength;
-//   }
+    return longestSubsequenceLength;
+  }
   
-//   // Test case
-//   const nums = [1, 3, 2, 2, 5, 2, 3, 7];
-//   const longestHarmoniousSubsequence = findLHS(nums);
-//   console.log(longestHarmoniousSubsequence); // Output: 5
+  // Test case
+  const nums = [1, 3, 2, 2, 5, 2, 3, 7];
+  const longestHarmoniousSubsequence = findLHS(nums);
+  console.log(longestHarmoniousSubsequence); // Output: 5
 //************************************************************************************************** */  
 // Question 4
 // You have a long flowerbed in which some of the plots are planted, and some are not.
@@ -112,35 +112,35 @@
 // Input: flowerbed = [1,0,0,0,1], n = 1
 // Output: true
 //*********************************ANSWER-4******************************************************* */
-// function canPlaceFlowers(flowerbed, n) {
-//     let count = 0;
-//     let i = 0;
+function canPlaceFlowers(flowerbed, n) {
+    let count = 0;
+    let i = 0;
   
-//     while (i < flowerbed.length) {
-//       if (
-//         flowerbed[i] === 0 &&
-//         (i === 0 || flowerbed[i - 1] === 0) &&
-//         (i === flowerbed.length - 1 || flowerbed[i + 1] === 0)
-//       ) {
-//         flowerbed[i] = 1;
-//         count++;
-//       }
+    while (i < flowerbed.length) {
+      if (
+        flowerbed[i] === 0 &&
+        (i === 0 || flowerbed[i - 1] === 0) &&
+        (i === flowerbed.length - 1 || flowerbed[i + 1] === 0)
+      ) {
+        flowerbed[i] = 1;
+        count++;
+      }
   
-//       if (count >= n) {
-//         return true;
-//       }
+      if (count >= n) {
+        return true;
+      }
   
-//       i++;
-//     }
+      i++;
+    }
   
-//     return false;
-//   }
+    return false;
+  }
   
-//   // Test case
-//   const flowerbed = [1, 0, 0, 0, 1];
-//   const n = 1;
-//   const canPlant = canPlaceFlowers(flowerbed, n);
-//   console.log(canPlant); // Output: true
+  // Test case
+  const flowerbed = [1, 0, 0, 0, 1];
+  const n = 1;
+  const canPlant = canPlaceFlowers(flowerbed, n);
+  console.log(canPlant); // Output: true
 //********************************************************************************************** */
 // Question 5
 // Given an integer array nums, find three numbers whose product is maximum and return the maximum product.
@@ -149,20 +149,20 @@
 // Input: nums = [1,2,3]
 // Output: 6  
 //*********************************ANSWER-5******************************************************* */
-// function maximumProduct(nums) {
-//     nums.sort((a, b) => a - b);
+function maximumProduct(nums) {
+    nums.sort((a, b) => a - b);
   
-//     const n = nums.length;
-//     const product1 = nums[0] * nums[1] * nums[n - 1];
-//     const product2 = nums[n - 1] * nums[n - 2] * nums[n - 3];
+    const n = nums.length;
+    const product1 = nums[0] * nums[1] * nums[n - 1];
+    const product2 = nums[n - 1] * nums[n - 2] * nums[n - 3];
   
-//     return Math.max(product1, product2);
-//   }
+    return Math.max(product1, product2);
+  }
   
-//   // Test case
-//   const nums = [1, 2, 3];
-//   const maxProduct = maximumProduct(nums);
-//   console.log(maxProduct); // Output: 6  
+  // Test case
+  const nums = [1, 2, 3];
+  const maxProduct = maximumProduct(nums);
+  console.log(maxProduct); // Output: 6  
 //********************************************************************************************** */
 // Question 6
 // Given an array of integers nums which is sorted in ascending order, and an integer target,
@@ -176,30 +176,30 @@
 
 // Explanation: 9 exists in nums and its index is 4
 //*************************************ANSER - 6 ************************************************ */
-// function search(nums, target) {
-//     let left = 0;
-//     let right = nums.length - 1;
+function search(nums, target) {
+    let left = 0;
+    let right = nums.length - 1;
   
-//     while (left <= right) {
-//       const mid = Math.floor((left + right) / 2);
+    while (left <= right) {
+      const mid = Math.floor((left + right) / 2);
   
-//       if (nums[mid] === target) {
-//         return mid;
-//       } else if (nums[mid] < target) {
-//         left = mid + 1;
-//       } else {
-//         right = mid - 1;
-//       }
-//     }
+      if (nums[mid] === target) {
+        return mid;
+      } else if (nums[mid] < target) {
+        left = mid + 1;
+      } else {
+        right = mid - 1;
+      }
+    }
   
-//     return -1;
-//   }
+    return -1;
+  }
   
-//   // Test case
-//   const nums = [-1, 0, 3, 5, 9, 12];
-//   const target = 9;
-//   const index = search(nums, target);
-//   console.log(index); // Output: 4  
+  // Test case
+  const nums = [-1, 0, 3, 5, 9, 12];
+  const target = 9;
+  const index = search(nums, target);
+  console.log(index); // Output: 4  
 //********************************************************************************************** */
 // Question 7
 // An array is monotonic if it is either monotone increasing or monotone decreasing.
@@ -213,26 +213,26 @@
 // Input: nums = [1,2,2,3]
 // Output: true
 //******************************ANSWER - 7 ********************************************************** */
-// function isMonotonic(nums) {
-//     const n = nums.length;
-//     let increasing = true;
-//     let decreasing = true;
+function isMonotonic(nums) {
+    const n = nums.length;
+    let increasing = true;
+    let decreasing = true;
   
-//     for (let i = 1; i < n; i++) {
-//       if (nums[i] > nums[i - 1]) {
-//         decreasing = false;
-//       } else if (nums[i] < nums[i - 1]) {
-//         increasing = false;
-//       }
-//     }
+    for (let i = 1; i < n; i++) {
+      if (nums[i] > nums[i - 1]) {
+        decreasing = false;
+      } else if (nums[i] < nums[i - 1]) {
+        increasing = false;
+      }
+    }
   
-//     return increasing || decreasing;
-//   }
+    return increasing || decreasing;
+  }
   
-//   // Test case
-//   const nums = [1, 2, 2, 3];
-//   const isMonotonicArray = isMonotonic(nums);
-//   console.log(isMonotonicArray); // Output: true  
+  // Test case
+  const nums = [1, 2, 2, 3];
+  const isMonotonicArray = isMonotonic(nums);
+  console.log(isMonotonicArray); // Output: true  
 //********************************************************************************************** */
 // Question 8
 // You are given an integer array nums and an integer k.
