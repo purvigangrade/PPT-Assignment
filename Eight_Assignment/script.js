@@ -15,32 +15,32 @@
 // At the end, both strings are equal, and 115 + 116 = 231 is the minimum sum possible to achieve this.
 
 //**************************************ANSWER - 1 ***************************************************************** */
-// function minimumDeleteSum(s1, s2) {
-//     const m = s1.length;
-//     const n = s2.length;
+function minimumDeleteSum(s1, s2) {
+    const m = s1.length;
+    const n = s2.length;
     
-//     // Create a 2D array to store the minimum delete sum
-//     const dp = new Array(m + 1).fill().map(() => new Array(n + 1).fill(0));
+    // Create a 2D array to store the minimum delete sum
+    const dp = new Array(m + 1).fill().map(() => new Array(n + 1).fill(0));
     
-//     // Fill the first row
-//     for (let i = 1; i <= n; i++) {
-//       dp[0][i] = dp[0][i - 1] + s2.charCodeAt(i - 1);
-//     }
+    // Fill the first row
+    for (let i = 1; i <= n; i++) {
+      dp[0][i] = dp[0][i - 1] + s2.charCodeAt(i - 1);
+    }
     
-//     // Fill the first column
-//     for (let i = 1; i <= m; i++) {
-//       dp[i][0] = dp[i - 1][0] + s1.charCodeAt(i - 1);
-//     }
+    // Fill the first column
+    for (let i = 1; i <= m; i++) {
+      dp[i][0] = dp[i - 1][0] + s1.charCodeAt(i - 1);
+    }
     
-//     // Fill the remaining cells
-//     for (let i = 1; i <= m; i++) {
-//       for (let j = 1; j <= n; j++) {
-//         if (s1.charAt(i - 1) === s2.charAt(j - 1)) {
-//           dp[i][j] = dp[i - 1][j - 1];
-//         } else {
-//           dp[i][j] = Math.min(
-//             dp[i - 1][j] + s1.charCodeAt(i - 1),
-//             dp[i][j - 1] + s2.charCodeAt(j - 1)
+    // Fill the remaining cells
+    for (let i = 1; i <= m; i++) {
+      for (let j = 1; j <= n; j++) {
+        if (s1.charAt(i - 1) === s2.charAt(j - 1)) {
+          dp[i][j] = dp[i - 1][j - 1];
+        } else {
+          dp[i][j] = Math.min(
+            dp[i - 1][j] + s1.charCodeAt(i - 1),
+            dp[i][j - 1] + s2.charCodeAt(j - 1)
 
 //********************************************************************************************************************/
 
@@ -64,39 +64,39 @@
 // true
 
 //***************************************ANSWER - 2 **************************************************************/
-// function checkValidString(s) {
-//     let low = 0;  // Minimum number of open parentheses
-//     let high = 0; // Maximum number of open parentheses
+function checkValidString(s) {
+    let low = 0;  // Minimum number of open parentheses
+    let high = 0; // Maximum number of open parentheses
     
-//     for (let i = 0; i < s.length; i++) {
-//       if (s[i] === '(') {
-//         low++;
-//         high++;
-//       } else if (s[i] === ')') {
-//         if (low > 0) {
-//           low--;
-//         }
-//         high--;
-//       } else { // s[i] === '*'
-//         if (low > 0) {
-//           low--;
-//         }
-//         high++;
-//       }
+    for (let i = 0; i < s.length; i++) {
+      if (s[i] === '(') {
+        low++;
+        high++;
+      } else if (s[i] === ')') {
+        if (low > 0) {
+          low--;
+        }
+        high--;
+      } else { // s[i] === '*'
+        if (low > 0) {
+          low--;
+        }
+        high++;
+      }
       
-//       if (high < 0) {
-//         return false;
-//       }
-//     }
+      if (high < 0) {
+        return false;
+      }
+    }
     
-//     return low === 0;
-//   }
+    return low === 0;
+  }
   
-//   // Test case
-//   const s = "()";
-//   const result = checkValidString(s);
-//   console.log(result);
-//   // Output: true
+  // Test case
+  const s = "()";
+  const result = checkValidString(s);
+  console.log(result);
+  // Output: true
   
 //******************************************************************************************************************/
 // **Question 3**
@@ -114,41 +114,41 @@
 // **Explanation:** You need one step to make "sea" to "ea" and another step to make "eat" to "ea"
 
 //**************************************ANSWER - 3******************************************************************/
-// function minDistance(word1, word2) {
-//     const m = word1.length;
-//     const n = word2.length;
+function minDistance(word1, word2) {
+    const m = word1.length;
+    const n = word2.length;
     
-//     // Initialize a 2D array dp with size (m+1) x (n+1)
-//     const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+    // Initialize a 2D array dp with size (m+1) x (n+1)
+    const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
     
-//     // Fill the first row and first column with cumulative deletions
-//     for (let i = 1; i <= m; i++) {
-//       dp[i][0] = i;
-//     }
-//     for (let j = 1; j <= n; j++) {
-//       dp[0][j] = j;
-//     }
+    // Fill the first row and first column with cumulative deletions
+    for (let i = 1; i <= m; i++) {
+      dp[i][0] = i;
+    }
+    for (let j = 1; j <= n; j++) {
+      dp[0][j] = j;
+    }
     
-//     // Fill the remaining cells of the dp array
-//     for (let i = 1; i <= m; i++) {
-//       for (let j = 1; j <= n; j++) {
-//         if (word1[i - 1] === word2[j - 1]) {
-//           dp[i][j] = dp[i - 1][j - 1];
-//         } else {
-//           dp[i][j] = Math.min(dp[i - 1][j], dp[i][j - 1]) + 1;
-//         }
-//       }
-//     }
+    // Fill the remaining cells of the dp array
+    for (let i = 1; i <= m; i++) {
+      for (let j = 1; j <= n; j++) {
+        if (word1[i - 1] === word2[j - 1]) {
+          dp[i][j] = dp[i - 1][j - 1];
+        } else {
+          dp[i][j] = Math.min(dp[i - 1][j], dp[i][j - 1]) + 1;
+        }
+      }
+    }
     
-//     return dp[m][n];
-//   }
+    return dp[m][n];
+  }
   
-//   // Test case
-//   const word1 = "sea";
-//   const word2 = "eat";
-//   const result = minDistance(word1, word2);
-//   console.log(result);
-//   // Output: 2
+  // Test case
+  const word1 = "sea";
+  const word2 = "eat";
+  const result = minDistance(word1, word2);
+  console.log(result);
+  // Output: 2
   
 //******************************************************************************************************************/
 //  **Question 4**
@@ -163,62 +163,62 @@
 // **Output:** [4,2,6,3,1,5]
 
 //***********************************ANSWER -4 *********************************************************************/
-// function TreeNode(val) {
-//     this.val = val;
-//     this.left = this.right = null;
-//   }
+function TreeNode(val) {
+    this.val = val;
+    this.left = this.right = null;
+  }
   
-//   function str2tree(s) {
-//     if (!s) return null;
+  function str2tree(s) {
+    if (!s) return null;
     
-//     let num = '';
-//     let index = 0;
+    let num = '';
+    let index = 0;
     
-//     // Extract the root value from the string
-//     while (index < s.length && (s[index] !== '(' && s[index] !== ')')) {
-//       num += s[index];
-//       index++;
-//     }
+    // Extract the root value from the string
+    while (index < s.length && (s[index] !== '(' && s[index] !== ')')) {
+      num += s[index];
+      index++;
+    }
     
-//     const root = new TreeNode(parseInt(num));
-//     let stack = [root];
+    const root = new TreeNode(parseInt(num));
+    let stack = [root];
     
-//     while (index < s.length) {
-//       if (s[index] === '(') {
-//         // Move to the left child
-//         index++;
-//         let node = stack[stack.length - 1];
-//         let childNum = '';
+    while (index < s.length) {
+      if (s[index] === '(') {
+        // Move to the left child
+        index++;
+        let node = stack[stack.length - 1];
+        let childNum = '';
         
-//         while (index < s.length && (s[index] !== '(' && s[index] !== ')')) {
-//           childNum += s[index];
-//           index++;
-//         }
+        while (index < s.length && (s[index] !== '(' && s[index] !== ')')) {
+          childNum += s[index];
+          index++;
+        }
         
-//         let child = new TreeNode(parseInt(childNum));
+        let child = new TreeNode(parseInt(childNum));
         
-//         if (!node.left) {
-//           node.left = child;
-//         } else {
-//           node.right = child;
-//         }
+        if (!node.left) {
+          node.left = child;
+        } else {
+          node.right = child;
+        }
         
-//         stack.push(child);
-//       } else if (s[index] === ')') {
-//         // Move back to the parent
-//         stack.pop();
-//         index++;
-//       }
-//     }
+        stack.push(child);
+      } else if (s[index] === ')') {
+        // Move back to the parent
+        stack.pop();
+        index++;
+      }
+    }
     
-//     return root;
-//   }
+    return root;
+  }
   
-//   // Test case
-//   const s = "4(2(3)(1))(6(5))";
-//   const root = str2tree(s);
-//   console.log(root);
-//   // Output: [4,2,6,3,1,5]
+  // Test case
+  const s = "4(2(3)(1))(6(5))";
+  const root = str2tree(s);
+  console.log(root);
+  // Output: [4,2,6,3,1,5]
   
 //******************************************************************************************************************/
 //  **Question 5**
@@ -247,36 +247,36 @@
 // The groups are "aa", "bb", and "ccc". This compresses to "a2b2c3".
 
 //***********************************ANSWER -5*********************************************************************/
-// function compress(chars) {
-//     let index = 0; // Current index in the modified array
-//     let count = 1; // Count of consecutive repeating characters
+function compress(chars) {
+    let index = 0; // Current index in the modified array
+    let count = 1; // Count of consecutive repeating characters
     
-//     for (let i = 1; i <= chars.length; i++) {
-//       if (i < chars.length && chars[i] === chars[i - 1]) {
-//         count++; // Increment count for consecutive repeating characters
-//       } else {
-//         chars[index] = chars[i - 1]; // Update the character in the modified array
+    for (let i = 1; i <= chars.length; i++) {
+      if (i < chars.length && chars[i] === chars[i - 1]) {
+        count++; // Increment count for consecutive repeating characters
+      } else {
+        chars[index] = chars[i - 1]; // Update the character in the modified array
         
-//         if (count > 1) {
-//           // Convert count to string and split into characters
-//           const countStr = count.toString().split('');
-//           chars.splice(index + 1, 0, ...countStr); // Insert count characters after the character
-//           index += countStr.length; // Update the index
-//         }
+        if (count > 1) {
+          // Convert count to string and split into characters
+          const countStr = count.toString().split('');
+          chars.splice(index + 1, 0, ...countStr); // Insert count characters after the character
+          index += countStr.length; // Update the index
+        }
         
-//         index++; // Move to the next position in the modified array
-//         count = 1; // Reset count for the next group
-//       }
-//     }
+        index++; // Move to the next position in the modified array
+        count = 1; // Reset count for the next group
+      }
+    }
     
-//     return index; // Return the new length of the array
-//   }
+    return index; // Return the new length of the array
+  }
   
-//   // Test case
-//   const chars = ["a","a","b","b","c","c","c"];
-//   const newLength = compress(chars);
-//   console.log(newLength); // Output: 6
-//   console.log(chars.slice(0, newLength)); // Output: ["a","2","b","2","c","3"]
+  // Test case
+  const chars = ["a","a","b","b","c","c","c"];
+  const newLength = compress(chars);
+  console.log(newLength); // Output: 6
+  console.log(chars.slice(0, newLength)); // Output: ["a","2","b","2","c","3"]
 
 //*************************************************************************************************************/
 // **Question 6**
@@ -298,46 +298,46 @@
 // The substring with start index = 6 is "bac", which is an anagram of "abc".
 
 //***********************************ANSWER -6*********************************************************************/
-// function findAnagrams(s, p) {
-//     const result = [];
-//     const targetCount = new Array(26).fill(0); // Frequency count of characters in p
-//     const windowCount = new Array(26).fill(0); // Frequency count of characters in the sliding window
-//     const aCharCode = 'a'.charCodeAt(0);
+function findAnagrams(s, p) {
+    const result = [];
+    const targetCount = new Array(26).fill(0); // Frequency count of characters in p
+    const windowCount = new Array(26).fill(0); // Frequency count of characters in the sliding window
+    const aCharCode = 'a'.charCodeAt(0);
     
-//     // Calculate frequency count of characters in p
-//     for (let i = 0; i < p.length; i++) {
-//       const charIndex = p.charCodeAt(i) - aCharCode;
-//       targetCount[charIndex]++;
-//     }
+    // Calculate frequency count of characters in p
+    for (let i = 0; i < p.length; i++) {
+      const charIndex = p.charCodeAt(i) - aCharCode;
+      targetCount[charIndex]++;
+    }
     
-//     let left = 0; // Left pointer of the sliding window
+    let left = 0; // Left pointer of the sliding window
     
-//     // Iterate through the string s with the right pointer of the sliding window
-//     for (let right = 0; right < s.length; right++) {
-//       const charIndex = s.charCodeAt(right) - aCharCode;
-//       windowCount[charIndex]++; // Increment frequency count of character in the window
+    // Iterate through the string s with the right pointer of the sliding window
+    for (let right = 0; right < s.length; right++) {
+      const charIndex = s.charCodeAt(right) - aCharCode;
+      windowCount[charIndex]++; // Increment frequency count of character in the window
       
-//       // If the window size is equal to the size of p, check for an anagram
-//       if (right - left + 1 === p.length) {
-//         if (windowCount.every((count, index) => count === targetCount[index])) {
-//           result.push(left); // Found an anagram, add the left pointer to the result
-//         }
+      // If the window size is equal to the size of p, check for an anagram
+      if (right - left + 1 === p.length) {
+        if (windowCount.every((count, index) => count === targetCount[index])) {
+          result.push(left); // Found an anagram, add the left pointer to the result
+        }
         
-//         // Move the window by incrementing the left pointer and updating the counts
-//         const leftCharIndex = s.charCodeAt(left) - aCharCode;
-//         windowCount[leftCharIndex]--;
-//         left++;
-//       }
-//     }
+        // Move the window by incrementing the left pointer and updating the counts
+        const leftCharIndex = s.charCodeAt(left) - aCharCode;
+        windowCount[leftCharIndex]--;
+        left++;
+      }
+    }
     
-//     return result;
-//   }
+    return result;
+  }
   
-//   // Test case
-//   const s = "cbaebabacd";
-//   const p = "abc";
-//   const indices = findAnagrams(s, p);
-//   console.log(indices); // Output: [0, 6]
+  // Test case
+  const s = "cbaebabacd";
+  const p = "abc";
+  const indices = findAnagrams(s, p);
+  console.log(indices); // Output: [0, 6]
   
 //*****************************************************************************************************************/
 
@@ -358,42 +358,42 @@
 // **Output:** "aaabcbc"
 
 //**************************************ANSWER - 7******************************************************************/
-// function decodeString(s) {
-//     const stack = [];
+function decodeString(s) {
+    const stack = [];
     
-//     for (let i = 0; i < s.length; i++) {
-//       if (s[i] === ']') {
-//         // Pop characters until '[' is encountered
-//         let decodedString = '';
-//         while (stack[stack.length - 1] !== '[') {
-//           decodedString = stack.pop() + decodedString;
-//         }
-//         stack.pop(); // Pop '[' from the stack
+    for (let i = 0; i < s.length; i++) {
+      if (s[i] === ']') {
+        // Pop characters until '[' is encountered
+        let decodedString = '';
+        while (stack[stack.length - 1] !== '[') {
+          decodedString = stack.pop() + decodedString;
+        }
+        stack.pop(); // Pop '[' from the stack
         
-//         // Pop digits until a non-digit character is encountered
-//         let repeatCount = '';
-//         while (!isNaN(stack[stack.length - 1])) {
-//           repeatCount = stack.pop() + repeatCount;
-//         }
+        // Pop digits until a non-digit character is encountered
+        let repeatCount = '';
+        while (!isNaN(stack[stack.length - 1])) {
+          repeatCount = stack.pop() + repeatCount;
+        }
         
-//         repeatCount = parseInt(repeatCount);
+        repeatCount = parseInt(repeatCount);
         
-//         // Repeat the decodedString and push it back to the stack
-//         decodedString = decodedString.repeat(repeatCount);
-//         stack.push(decodedString);
-//       } else {
-//         // Push characters to the stack
-//         stack.push(s[i]);
-//       }
-//     }
+        // Repeat the decodedString and push it back to the stack
+        decodedString = decodedString.repeat(repeatCount);
+        stack.push(decodedString);
+      } else {
+        // Push characters to the stack
+        stack.push(s[i]);
+      }
+    }
     
-//     return stack.join('');
-//   }
+    return stack.join('');
+  }
   
-//   // Test case
-//   const s = "3[a]2[bc]";
-//   const decodedString = decodeString(s);
-//   console.log(decodedString); // Output: "aaabcbc"
+  // Test case
+  const s = "3[a]2[bc]";
+  const decodedString = decodeString(s);
+  console.log(decodedString); // Output: "aaabcbc"
   
 //*****************************************************************************************************************/
 // **Question 8**
