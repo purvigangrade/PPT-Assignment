@@ -21,26 +21,26 @@
 
 //**********************************ANSWER -1 *************************************************** */
 
-// function construct2DArray(original, m, n) {
-//     const length = original.length;
-//     if (length !== m * n) {
-//       return [];
-//     }
+function construct2DArray(original, m, n) {
+    const length = original.length;
+    if (length !== m * n) {
+      return [];
+    }
   
-//     const result = [];
-//     for (let i = 0; i < length; i += n) {
-//       result.push(original.slice(i, i + n));
-//     }
+    const result = [];
+    for (let i = 0; i < length; i += n) {
+      result.push(original.slice(i, i + n));
+    }
   
-//     return result;
-//   }
+    return result;
+  }
   
-//   // Test case
-//   const original = [1, 2, 3, 4];
-//   const m = 2;
-//   const n = 2;
-//   const constructedArray = construct2DArray(original, m, n);
-//   console.log(constructedArray); // Output: [[1, 2], [3, 4]]
+  // Test case
+  const original = [1, 2, 3, 4];
+  const m = 2;
+  const n = 2;
+  const constructedArray = construct2DArray(original, m, n);
+  console.log(constructedArray); // Output: [[1, 2], [3, 4]]
 //************************************************************************************************* */  
 
 //  **Question 2**
@@ -57,24 +57,24 @@
 // **Explanation:** Because the 3rd row is incomplete, we return 2.
 
 //******************************ANSWER - 2******************************************************************* */  
-// function arrangeCoins(n) {
-//     let completeRows = 0;
-//     let coins = n;
-//     let row = 1;
+function arrangeCoins(n) {
+    let completeRows = 0;
+    let coins = n;
+    let row = 1;
   
-//     while (coins >= row) {
-//       coins -= row;
-//       row++;
-//       completeRows++;
-//     }
+    while (coins >= row) {
+      coins -= row;
+      row++;
+      completeRows++;
+    }
   
-//     return completeRows;
-//   }
+    return completeRows;
+  }
   
-//   // Test case
-//   const n = 5;
-//   const completeRows = arrangeCoins(n);
-//   console.log(completeRows); // Output: 2
+  // Test case
+  const n = 5;
+  const completeRows = arrangeCoins(n);
+  console.log(completeRows); // Output: 2
 //************************************************************************************************* */  
 
 <aside>
@@ -94,16 +94,16 @@ After sorting, it becomes [0,1,9,16,100].
 
 </aside>
 //*******************************ANSWER - 3****************************************************************** */  
-// function sortedSquares(nums) {
-//     const squared = nums.map(num => num * num);
-//     squared.sort((a, b) => a - b);
-//     return squared;
-//   }
+function sortedSquares(nums) {
+    const squared = nums.map(num => num * num);
+    squared.sort((a, b) => a - b);
+    return squared;
+  }
   
-//   // Test case
-//   const nums = [-4, -1, 0, 3, 10];
-//   const sortedSquaresArray = sortedSquares(nums);
-//   console.log(sortedSquaresArray); // Output: [0, 1, 9, 16, 100]
+  // Test case
+  const nums = [-4, -1, 0, 3, 10];
+  const sortedSquaresArray = sortedSquares(nums);
+  console.log(sortedSquaresArray); // Output: [0, 1, 9, 16, 100]
   
 //************************************************************************************************* */  
 
@@ -132,21 +132,21 @@ After sorting, it becomes [0,1,9,16,100].
 // </aside>
 
 //*******************************ANSWER - 4****************************************************************** */ 
-// function findDisappearedNumbers(nums1, nums2) {
-//     const set1 = new Set(nums1);
-//     const set2 = new Set(nums2);
+function findDisappearedNumbers(nums1, nums2) {
+    const set1 = new Set(nums1);
+    const set2 = new Set(nums2);
   
-//     const distinctNums1 = nums1.filter(num => !set2.has(num));
-//     const distinctNums2 = nums2.filter(num => !set1.has(num));
+    const distinctNums1 = nums1.filter(num => !set2.has(num));
+    const distinctNums2 = nums2.filter(num => !set1.has(num));
   
-//     return [distinctNums1, distinctNums2];
-//   }
+    return [distinctNums1, distinctNums2];
+  }
   
-//   // Test case
-//   const nums1 = [1, 2, 3];
-//   const nums2 = [2, 4, 6];
-//   const answer = findDisappearedNumbers(nums1, nums2);
-//   console.log(answer); // Output: [[1, 3], [4, 6]]
+  // Test case
+  const nums1 = [1, 2, 3];
+  const nums2 = [2, 4, 6];
+  const answer = findDisappearedNumbers(nums1, nums2);
+  console.log(answer); // Output: [[1, 3], [4, 6]]
   
 //*********************************************************************************************************** */   
 
@@ -198,31 +198,31 @@ After sorting, it becomes [0,1,9,16,100].
 // </aside>
 
 //*******************************************ANSWER -5 ******************************************** */
-// function findTheDistanceValue(arr1, arr2, d) {
-//     let distanceValue = 0;
+function findTheDistanceValue(arr1, arr2, d) {
+    let distanceValue = 0;
   
-//     for (const num1 of arr1) {
-//       let isDistanceValid = true;
-//       for (const num2 of arr2) {
-//         if (Math.abs(num1 - num2) <= d) {
-//           isDistanceValid = false;
-//           break;
-//         }
-//       }
-//       if (isDistanceValid) {
-//         distanceValue++;
-//       }
-//     }
+    for (const num1 of arr1) {
+      let isDistanceValid = true;
+      for (const num2 of arr2) {
+        if (Math.abs(num1 - num2) <= d) {
+          isDistanceValid = false;
+          break;
+        }
+      }
+      if (isDistanceValid) {
+        distanceValue++;
+      }
+    }
   
-//     return distanceValue;
-//   }
+    return distanceValue;
+  }
   
-//   // Test case
-//   const arr1 = [4, 5, 8];
-//   const arr2 = [10, 9, 1, 8];
-//   const d = 2;
-//   const distanceValue = findTheDistanceValue(arr1, arr2, d);
-//   console.log(distanceValue); // Output: 2
+  // Test case
+  const arr1 = [4, 5, 8];
+  const arr2 = [10, 9, 1, 8];
+  const d = 2;
+  const distanceValue = findTheDistanceValue(arr1, arr2, d);
+  console.log(distanceValue); // Output: 2
   
 //************************************************************************************************** */
 
@@ -244,26 +244,26 @@ After sorting, it becomes [0,1,9,16,100].
 // </aside>
 
 //*******************************ANSWER - 6******************************************************************* */
-// function findDuplicates(nums) {
-//     const duplicates = [];
+function findDuplicates(nums) {
+    const duplicates = [];
     
-//     for (let i = 0; i < nums.length; i++) {
-//       const index = Math.abs(nums[i]) - 1;
+    for (let i = 0; i < nums.length; i++) {
+      const index = Math.abs(nums[i]) - 1;
       
-//       if (nums[index] < 0) {
-//         duplicates.push(index + 1);
-//       } else {
-//         nums[index] = -nums[index];
-//       }
-//     }
+      if (nums[index] < 0) {
+        duplicates.push(index + 1);
+      } else {
+        nums[index] = -nums[index];
+      }
+    }
     
-//     return duplicates;
-//   }
+    return duplicates;
+  }
   
-//   // Test case
-//   const nums = [4, 3, 2, 7, 8, 2, 3, 1];
-//   const duplicates = findDuplicates(nums);
-//   console.log(duplicates); // Output: [2, 3]  
+  // Test case
+  const nums = [4, 3, 2, 7, 8, 2, 3, 1];
+  const duplicates = findDuplicates(nums);
+  console.log(duplicates); // Output: [2, 3]  
 //************************************************************************************************************* */
 
 // <aside>
@@ -293,27 +293,27 @@ After sorting, it becomes [0,1,9,16,100].
 // </aside>
 
 //*******************************ANSWER - 7**************************************************************** */
-// function findMin(nums) {
-//     let left = 0;
-//     let right = nums.length - 1;
+function findMin(nums) {
+    let left = 0;
+    let right = nums.length - 1;
   
-//     while (left < right) {
-//       const mid = Math.floor((left + right) / 2);
+    while (left < right) {
+      const mid = Math.floor((left + right) / 2);
   
-//       if (nums[mid] > nums[right]) {
-//         left = mid + 1;
-//       } else {
-//         right = mid;
-//       }
-//     }
+      if (nums[mid] > nums[right]) {
+        left = mid + 1;
+      } else {
+        right = mid;
+      }
+    }
   
-//     return nums[left];
-//   }
+    return nums[left];
+  }
   
-//   // Test case
-//   const nums = [3, 4, 5, 1, 2];
-//   const minElement = findMin(nums);
-//   console.log(minElement); // Output: 1
+  // Test case
+  const nums = [3, 4, 5, 1, 2];
+  const minElement = findMin(nums);
+  console.log(minElement); // Output: 1
   
 //************************************************************************************************************* */
 
