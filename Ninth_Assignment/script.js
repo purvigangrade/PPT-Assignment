@@ -20,22 +20,22 @@
 // Output: false
 
 //**************************************ANSWER - 1********************************************************* */
-// function isPowerOfTwo(n) {
-//     if (n <= 0) {
-//       return false;
-//     }
+function isPowerOfTwo(n) {
+    if (n <= 0) {
+      return false;
+    }
   
-//     while (n % 2 === 0) {
-//       n /= 2;
-//     }
+    while (n % 2 === 0) {
+      n /= 2;
+    }
   
-//     return n === 1;
-//   }
+    return n === 1;
+  }
   
-//   // Test cases
-//   console.log(isPowerOfTwo(1)); // Output: true
-//   console.log(isPowerOfTwo(16)); // Output: true
-//   console.log(isPowerOfTwo(3)); // Output: false
+  // Test cases
+  console.log(isPowerOfTwo(1)); // Output: true
+  console.log(isPowerOfTwo(16)); // Output: true
+  console.log(isPowerOfTwo(3)); // Output: false
   
 //********************************************************************************************************* */
 
@@ -56,13 +56,13 @@
 // Output : 15
 
 //**************************************ANSWER - 2********************************************************* */
-// function sumOfFirstNNumbers(n) {
-//     return (n * (n + 1)) / 2;
-//   }
+function sumOfFirstNNumbers(n) {
+    return (n * (n + 1)) / 2;
+  }
   
-//   // Test cases
-//   console.log(sumOfFirstNNumbers(3)); // Output: 6
-//   console.log(sumOfFirstNNumbers(5)); // Output: 15
+  // Test cases
+  console.log(sumOfFirstNNumbers(3)); // Output: 6
+  console.log(sumOfFirstNNumbers(5)); // Output: 15
   
 //********************************************************************************************************* */
 
@@ -83,17 +83,17 @@
 // Output: 24
 
 //**************************************ANSWER - 3********************************************************* */
-// function factorial(N) {
-//     if (N === 0 || N === 1) {
-//       return 1;
-//     } else {
-//       return N * factorial(N - 1);
-//     }
-//   }
+function factorial(N) {
+    if (N === 0 || N === 1) {
+      return 1;
+    } else {
+      return N * factorial(N - 1);
+    }
+  }
   
-//   // Test cases
-//   console.log(factorial(5)); // Output: 120
-//   console.log(factorial(4)); // Output: 24
+  // Test cases
+  console.log(factorial(5)); // Output: 120
+  console.log(factorial(4)); // Output: 24
   
 //********************************************************************************************************* */
 
@@ -113,17 +113,17 @@
 // Output: 32
 
 //**************************************ANSWER - 4********************************************************* */
-// function power(N, P) {
-//     let result = 1;
-//     for (let i = 1; i <= P; i++) {
-//       result *= N;
-//     }
-//     return result;
-//   }
+function power(N, P) {
+    let result = 1;
+    for (let i = 1; i <= P; i++) {
+      result *= N;
+    }
+    return result;
+  }
   
-//   // Test cases
-//   console.log(power(5, 2)); // Output: 25
-//   console.log(power(2, 5)); // Output: 32
+  // Test cases
+  console.log(power(5, 2)); // Output: 25
+  console.log(power(2, 5)); // Output: 32
   
 //********************************************************************************************************* */
 
@@ -142,22 +142,22 @@
 // Output: 45
 
 //**************************************ANSWER - 5********************************************************* */
-// function findMax(arr, index) {
-//     if (index === arr.length - 1) {
-//       return arr[index];
-//     }
+function findMax(arr, index) {
+    if (index === arr.length - 1) {
+      return arr[index];
+    }
     
-//     const maxRest = findMax(arr, index + 1);
+    const maxRest = findMax(arr, index + 1);
     
-//     return Math.max(arr[index], maxRest);
-//   }
+    return Math.max(arr[index], maxRest);
+  }
   
-//   // Test cases
-//   const arr1 = [1, 4, 3, -5, -4, 8, 6];
-//   console.log(findMax(arr1, 0)); // Output: 8
+  // Test cases
+  const arr1 = [1, 4, 3, -5, -4, 8, 6];
+  console.log(findMax(arr1, 0)); // Output: 8
   
-//   const arr2 = [1, 4, 45, 6, 10, -8];
-//   console.log(findMax(arr2, 0)); // Output: 45
+  const arr2 = [1, 4, 45, 6, 10, -8];
+  console.log(findMax(arr2, 0)); // Output: 45
   
 //********************************************************************************************************* */
 
@@ -179,13 +179,13 @@
 
 //**************************************ANSWER - 6********************************************************* */
 
-// function findNthTerm(a, d, N) {
-//     return a + (N - 1) * d;
-//   }
+function findNthTerm(a, d, N) {
+    return a + (N - 1) * d;
+  }
   
-//   // Test cases
-//   console.log(findNthTerm(2, 1, 5)); // Output: 6
-//   console.log(findNthTerm(5, 2, 10)); // Output: 23
+  // Test cases
+  console.log(findNthTerm(2, 1, 5)); // Output: 6
+  console.log(findNthTerm(5, 2, 10)); // Output: 23
   
 //********************************************************************************************************* */
 
@@ -215,36 +215,36 @@
 
 //**************************************ANSWER - 7********************************************************* */
 
-// function permuteString(str) {
-//     const result = [];
-//     permuteHelper(str, 0, str.length - 1, result);
-//     return result;
-//   }
+function permuteString(str) {
+    const result = [];
+    permuteHelper(str, 0, str.length - 1, result);
+    return result;
+  }
   
-//   function permuteHelper(str, left, right, result) {
-//     if (left === right) {
-//       result.push(str);
-//       return;
-//     }
+  function permuteHelper(str, left, right, result) {
+    if (left === right) {
+      result.push(str);
+      return;
+    }
   
-//     for (let i = left; i <= right; i++) {
-//       str = swapCharacters(str, left, i);
-//       permuteHelper(str, left + 1, right, result);
-//       str = swapCharacters(str, left, i); // backtrack
-//     }
-//   }
+    for (let i = left; i <= right; i++) {
+      str = swapCharacters(str, left, i);
+      permuteHelper(str, left + 1, right, result);
+      str = swapCharacters(str, left, i); // backtrack
+    }
+  }
   
-//   function swapCharacters(str, i, j) {
-//     const charArray = str.split("");
-//     const temp = charArray[i];
-//     charArray[i] = charArray[j];
-//     charArray[j] = temp;
-//     return charArray.join("");
-//   }
+  function swapCharacters(str, i, j) {
+    const charArray = str.split("");
+    const temp = charArray[i];
+    charArray[i] = charArray[j];
+    charArray[j] = temp;
+    return charArray.join("");
+  }
   
-//   // Test case
-//   console.log(permuteString("ABC")); // Output: ["ABC", "ACB", "BAC", "BCA", "CBA", "CAB"]
-//   console.log(permuteString("XY")); // Output: ["XY", "YX"]
+  // Test case
+  console.log(permuteString("ABC")); // Output: ["ABC", "ACB", "BAC", "BCA", "CBA", "CAB"]
+  console.log(permuteString("XY")); // Output: ["XY", "YX"]
   
 //********************************************************************************************************* */
 
