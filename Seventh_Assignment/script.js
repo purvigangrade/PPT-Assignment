@@ -13,35 +13,35 @@
 // **Output:** true
 
 //******************************ANSWER-1************************************************************* */
-// function isIsomorphic(s, t) {
-//     if (s.length !== t.length) {
-//       return false;
-//     }
+function isIsomorphic(s, t) {
+    if (s.length !== t.length) {
+      return false;
+    }
   
-//     const mapS = new Map();
-//     const mapT = new Map();
+    const mapS = new Map();
+    const mapT = new Map();
   
-//     for (let i = 0; i < s.length; i++) {
-//       const charS = s[i];
-//       const charT = t[i];
+    for (let i = 0; i < s.length; i++) {
+      const charS = s[i];
+      const charT = t[i];
   
-//       if ((mapS.has(charS) && mapS.get(charS) !== charT) || (mapT.has(charT) && mapT.get(charT) !== charS)) {
-//         return false;
-//       }
+      if ((mapS.has(charS) && mapS.get(charS) !== charT) || (mapT.has(charT) && mapT.get(charT) !== charS)) {
+        return false;
+      }
   
-//       mapS.set(charS, charT);
-//       mapT.set(charT, charS);
-//     }
+      mapS.set(charS, charT);
+      mapT.set(charT, charS);
+    }
   
-//     return true;
-//   }
+    return true;
+  }
   
-//   // Test case
-//   const s = "egg";
-//   const t = "add";
-//   const result = isIsomorphic(s, t);
-//   console.log(result);
-//   // Output: true  
+  // Test case
+  const s = "egg";
+  const t = "add";
+  const result = isIsomorphic(s, t);
+  console.log(result);
+  // Output: true  
 
 //*************************************************************************************************** */
 
@@ -60,35 +60,35 @@
 // true
 
 //******************************ANSWER-2*********************************************************************** */
-// function isStrobogrammatic(num) {
-//     const map = {
-//       '0': '0',
-//       '1': '1',
-//       '6': '9',
-//       '8': '8',
-//       '9': '6',
-//     };
+function isStrobogrammatic(num) {
+    const map = {
+      '0': '0',
+      '1': '1',
+      '6': '9',
+      '8': '8',
+      '9': '6',
+    };
   
-//     let left = 0;
-//     let right = num.length - 1;
+    let left = 0;
+    let right = num.length - 1;
   
-//     while (left <= right) {
-//       if (!map[num[left]] || map[num[left]] !== num[right]) {
-//         return false;
-//       }
+    while (left <= right) {
+      if (!map[num[left]] || map[num[left]] !== num[right]) {
+        return false;
+      }
   
-//       left++;
-//       right--;
-//     }
+      left++;
+      right--;
+    }
   
-//     return true;
-//   }
+    return true;
+  }
   
-//   // Test case
-//   const num = "69";
-//   const result = isStrobogrammatic(num);
-//   console.log(result);
-//   // Output: true
+  // Test case
+  const num = "69";
+  const result = isStrobogrammatic(num);
+  console.log(result);
+  // Output: true
   
 //************************************************************************************************************* */
 // **Question 3**
@@ -106,35 +106,35 @@
 // "134"
 
 //******************************ANSWER-3*********************************************************************** */
-// function addStrings(num1, num2) {
-//     let sum = "";
-//     let carry = 0;
-//     let i = num1.length - 1;
-//     let j = num2.length - 1;
+function addStrings(num1, num2) {
+    let sum = "";
+    let carry = 0;
+    let i = num1.length - 1;
+    let j = num2.length - 1;
   
-//     while (i >= 0 || j >= 0 || carry > 0) {
-//       let digit1 = i >= 0 ? parseInt(num1[i]) : 0;
-//       let digit2 = j >= 0 ? parseInt(num2[j]) : 0;
+    while (i >= 0 || j >= 0 || carry > 0) {
+      let digit1 = i >= 0 ? parseInt(num1[i]) : 0;
+      let digit2 = j >= 0 ? parseInt(num2[j]) : 0;
   
-//       let digitSum = digit1 + digit2 + carry;
-//       carry = Math.floor(digitSum / 10);
-//       digitSum %= 10;
+      let digitSum = digit1 + digit2 + carry;
+      carry = Math.floor(digitSum / 10);
+      digitSum %= 10;
   
-//       sum = digitSum.toString() + sum;
+      sum = digitSum.toString() + sum;
   
-//       i--;
-//       j--;
-//     }
+      i--;
+      j--;
+    }
   
-//     return sum;
-//   }
+    return sum;
+  }
   
-//   // Test case
-//   const num1 = "11";
-//   const num2 = "123";
-//   const result = addStrings(num1, num2);
-//   console.log(result);
-//   // Output: "134"
+  // Test case
+  const num1 = "11";
+  const num2 = "123";
+  const result = addStrings(num1, num2);
+  console.log(result);
+  // Output: "134"
   
 //************************************************************************************************************* */
 // **Question 4**
@@ -148,21 +148,21 @@
 // **Output:** "s'teL ekat edoCteeL tsetnoc"
 
 //******************************ANSWER - 4*********************************************************************** */
-// function reverseWords(s) {
-//     const words = s.split(" ");
+function reverseWords(s) {
+    const words = s.split(" ");
   
-//     for (let i = 0; i < words.length; i++) {
-//       words[i] = words[i].split("").reverse().join("");
-//     }
+    for (let i = 0; i < words.length; i++) {
+      words[i] = words[i].split("").reverse().join("");
+    }
   
-//     return words.join(" ");
-//   }
+    return words.join(" ");
+  }
   
-//   // Test case
-//   const s = "Let's take LeetCode contest";
-//   const result = reverseWords(s);
-//   console.log(result);
-//   // Output: "s'teL ekat edoCteeL tsetnoc"
+  // Test case
+  const s = "Let's take LeetCode contest";
+  const result = reverseWords(s);
+  console.log(result);
+  // Output: "s'teL ekat edoCteeL tsetnoc"
   
 //*************************************************************************************************************** */
 //  **Question 5**
@@ -180,31 +180,31 @@
 // "bacdfeg"
 
 //******************************ANSWER - 5*********************************************************************** */
-// function reverseStr(s, k) {
-//     const chars = s.split("");
+function reverseStr(s, k) {
+    const chars = s.split("");
   
-//     for (let i = 0; i < s.length; i += 2 * k) {
-//       let start = i;
-//       let end = Math.min(i + k - 1, s.length - 1);
+    for (let i = 0; i < s.length; i += 2 * k) {
+      let start = i;
+      let end = Math.min(i + k - 1, s.length - 1);
   
-//       while (start < end) {
-//         const temp = chars[start];
-//         chars[start] = chars[end];
-//         chars[end] = temp;
-//         start++;
-//         end--;
-//       }
-//     }
+      while (start < end) {
+        const temp = chars[start];
+        chars[start] = chars[end];
+        chars[end] = temp;
+        start++;
+        end--;
+      }
+    }
   
-//     return chars.join("");
-//   }
+    return chars.join("");
+  }
   
-//   // Test case
-//   const s = "abcdefg";
-//   const k = 2;
-//   const result = reverseStr(s, k);
-//   console.log(result);
-//   // Output: "bacdfeg"
+  // Test case
+  const s = "abcdefg";
+  const k = 2;
+  const result = reverseStr(s, k);
+  console.log(result);
+  // Output: "bacdfeg"
   
 //*************************************************************************************************************** */
 //  **Question 6**
@@ -224,21 +224,21 @@
 // true
 
 //******************************ANSWER - 6*********************************************************************** */
-// function rotateString(s, goal) {
-//     if (s.length !== goal.length) {
-//       return false;
-//     }
+function rotateString(s, goal) {
+    if (s.length !== goal.length) {
+      return false;
+    }
   
-//     const rotated = s + s;
-//     return rotated.includes(goal);
-//   }
+    const rotated = s + s;
+    return rotated.includes(goal);
+  }
   
-//   // Test case
-//   const s = "abcde";
-//   const goal = "cdeab";
-//   const result = rotateString(s, goal);
-//   console.log(result);
-//   // Output: true
+  // Test case
+  const s = "abcde";
+  const goal = "cdeab";
+  const result = rotateString(s, goal);
+  console.log(result);
+  // Output: true
   
 //*************************************************************************************************************** */
 //  **Question 7**
@@ -258,33 +258,33 @@
 // Both s and t become "ac".
 
 //*******************************************ANSWER - 7*********************************************************** */
-// function backspaceCompare(s, t) {
-//     const processString = (str) => {
-//       const stack = [];
+function backspaceCompare(s, t) {
+    const processString = (str) => {
+      const stack = [];
   
-//       for (let char of str) {
-//         if (char === '#') {
-//           stack.pop();
-//         } else {
-//           stack.push(char);
-//         }
-//       }
+      for (let char of str) {
+        if (char === '#') {
+          stack.pop();
+        } else {
+          stack.push(char);
+        }
+      }
   
-//       return stack.join('');
-//     };
+      return stack.join('');
+    };
   
-//     const processedS = processString(s);
-//     const processedT = processString(t);
+    const processedS = processString(s);
+    const processedT = processString(t);
   
-//     return processedS === processedT;
-//   }
+    return processedS === processedT;
+  }
   
-//   // Test case
-//   const s = "ab#c";
-//   const t = "ad#c";
-//   const result = backspaceCompare(s, t);
-//   console.log(result);
-//   // Output: true
+  // Test case
+  const s = "ab#c";
+  const t = "ad#c";
+  const result = backspaceCompare(s, t);
+  console.log(result);
+  // Output: true
 
 //*************************************************************************************************************** */
 //  **Question 8**
