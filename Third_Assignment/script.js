@@ -11,41 +11,41 @@
 
 // Explanation: The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
 //********************************ANSWER -1******************************************************* */
-// function threeSumClosest(nums, target) {
-//     nums.sort((a, b) => a - b);
-//     let closestSum = nums[0] + nums[1] + nums[2];
+function threeSumClosest(nums, target) {
+    nums.sort((a, b) => a - b);
+    let closestSum = nums[0] + nums[1] + nums[2];
   
-//     for (let i = 0; i < nums.length - 2; i++) {
-//       let left = i + 1;
-//       let right = nums.length - 1;
+    for (let i = 0; i < nums.length - 2; i++) {
+      let left = i + 1;
+      let right = nums.length - 1;
   
-//       while (left < right) {
-//         const currentSum = nums[i] + nums[left] + nums[right];
+      while (left < right) {
+        const currentSum = nums[i] + nums[left] + nums[right];
   
-//         if (currentSum === target) {
-//           return currentSum;
-//         }
+        if (currentSum === target) {
+          return currentSum;
+        }
   
-//         if (Math.abs(currentSum - target) < Math.abs(closestSum - target)) {
-//           closestSum = currentSum;
-//         }
+        if (Math.abs(currentSum - target) < Math.abs(closestSum - target)) {
+          closestSum = currentSum;
+        }
   
-//         if (currentSum < target) {
-//           left++;
-//         } else {
-//           right--;
-//         }
-//       }
-//     }
+        if (currentSum < target) {
+          left++;
+        } else {
+          right--;
+        }
+      }
+    }
   
-//     return closestSum;
-//   }
+    return closestSum;
+  }
   
-//   // Test case
-//   const nums = [-1, 2, 1, -4];
-//   const target = 1;
-//   const closestSum = threeSumClosest(nums, target);
-//   console.log(closestSum); // Output: 2
+  // Test case
+  const nums = [-1, 2, 1, -4];
+  const target = 1;
+  const closestSum = threeSumClosest(nums, target);
+  console.log(closestSum); // Output: 2
 //************************************************************************************************ */
 // Question 2
 // Given an array nums of n integers, return an array of all the unique quadruplets
@@ -60,56 +60,56 @@
 // Input: nums = [1,0,-1,0,-2,2], target = 0
 // Output: [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]
 //****************************ANSWER - 2************************************************************** */
-// function fourSum(nums, target) {
-//     const result = [];
-//     nums.sort((a, b) => a - b);
+function fourSum(nums, target) {
+    const result = [];
+    nums.sort((a, b) => a - b);
   
-//     const n = nums.length;
+    const n = nums.length;
   
-//     for (let i = 0; i < n - 3; i++) {
-//       if (i > 0 && nums[i] === nums[i - 1]) {
-//         continue;
-//       }
+    for (let i = 0; i < n - 3; i++) {
+      if (i > 0 && nums[i] === nums[i - 1]) {
+        continue;
+      }
   
-//       for (let j = i + 1; j < n - 2; j++) {
-//         if (j > i + 1 && nums[j] === nums[j - 1]) {
-//           continue;
-//         }
+      for (let j = i + 1; j < n - 2; j++) {
+        if (j > i + 1 && nums[j] === nums[j - 1]) {
+          continue;
+        }
   
-//         let left = j + 1;
-//         let right = n - 1;
+        let left = j + 1;
+        let right = n - 1;
   
-//         while (left < right) {
-//           const sum = nums[i] + nums[j] + nums[left] + nums[right];
+        while (left < right) {
+          const sum = nums[i] + nums[j] + nums[left] + nums[right];
   
-//           if (sum === target) {
-//             result.push([nums[i], nums[j], nums[left], nums[right]]);
-//             left++;
-//             right--;
+          if (sum === target) {
+            result.push([nums[i], nums[j], nums[left], nums[right]]);
+            left++;
+            right--;
   
-//             while (left < right && nums[left] === nums[left - 1]) {
-//               left++;
-//             }
-//             while (left < right && nums[right] === nums[right + 1]) {
-//               right--;
-//             }
-//           } else if (sum < target) {
-//             left++;
-//           } else {
-//             right--;
-//           }
-//         }
-//       }
-//     }
+            while (left < right && nums[left] === nums[left - 1]) {
+              left++;
+            }
+            while (left < right && nums[right] === nums[right + 1]) {
+              right--;
+            }
+          } else if (sum < target) {
+            left++;
+          } else {
+            right--;
+          }
+        }
+      }
+    }
   
-//     return result;
-//   }
+    return result;
+  }
   
-//   // Test case
-//   const nums = [1, 0, -1, 0, -2, 2];
-//   const target = 0;
-//   const quadruplets = fourSum(nums, target);
-//   console.log(quadruplets); // Output: [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]
+  // Test case
+  const nums = [1, 0, -1, 0, -2, 2];
+  const target = 0;
+  const quadruplets = fourSum(nums, target);
+  console.log(quadruplets); // Output: [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]
 //************************************************************************************* */
 // **Question 3**
 // A permutation of an array of integers is an arrangement of its members into a
@@ -138,41 +138,41 @@
 // Input: nums = [1,2,3]
 // Output: [1,3,2]
 //*****************************ANSWER -3******************************************************** */
-// function nextPermutation(nums) {
-//     const n = nums.length;
-//     let i = n - 2;
+function nextPermutation(nums) {
+    const n = nums.length;
+    let i = n - 2;
   
-//     // Find the first decreasing element from right to left
-//     while (i >= 0 && nums[i] >= nums[i + 1]) {
-//       i--;
-//     }
+    // Find the first decreasing element from right to left
+    while (i >= 0 && nums[i] >= nums[i + 1]) {
+      i--;
+    }
   
-//     if (i >= 0) {
-//       let j = n - 1;
+    if (i >= 0) {
+      let j = n - 1;
   
-//       // Find the first element greater than the decreasing element
-//       while (j >= 0 && nums[j] <= nums[i]) {
-//         j--;
-//       }
+      // Find the first element greater than the decreasing element
+      while (j >= 0 && nums[j] <= nums[i]) {
+        j--;
+      }
   
-//       // Swap the decreasing element with the next greater element
-//       [nums[i], nums[j]] = [nums[j], nums[i]];
-//     }
+      // Swap the decreasing element with the next greater element
+      [nums[i], nums[j]] = [nums[j], nums[i]];
+    }
   
-//     // Reverse the elements after the decreasing point
-//     let left = i + 1;
-//     let right = n - 1;
-//     while (left < right) {
-//       [nums[left], nums[right]] = [nums[right], nums[left]];
-//       left++;
-//       right--;
-//     }
-//   }
+    // Reverse the elements after the decreasing point
+    let left = i + 1;
+    let right = n - 1;
+    while (left < right) {
+      [nums[left], nums[right]] = [nums[right], nums[left]];
+      left++;
+      right--;
+    }
+  }
   
-//   // Test case
-//   const nums = [1, 2, 3];
-//   nextPermutation(nums);
-//   console.log(nums); // Output: [1, 3, 2]
+  // Test case
+  const nums = [1, 2, 3];
+  nextPermutation(nums);
+  console.log(nums); // Output: [1, 3, 2]
 //******************************************************************************* */
 // Question 4
 // Given a sorted array of distinct integers and a target value, return the index if the
@@ -185,30 +185,30 @@
 // Input: nums = [1,3,5,6], target = 5
 // Output: 2
 //*************ANSWER - 4****************************************************************** */
-// function searchInsert(nums, target) {
-//     let left = 0;
-//     let right = nums.length - 1;
+function searchInsert(nums, target) {
+    let left = 0;
+    let right = nums.length - 1;
   
-//     while (left <= right) {
-//       const mid = Math.floor((left + right) / 2);
+    while (left <= right) {
+      const mid = Math.floor((left + right) / 2);
   
-//       if (nums[mid] === target) {
-//         return mid;
-//       } else if (nums[mid] < target) {
-//         left = mid + 1;
-//       } else {
-//         right = mid - 1;
-//       }
-//     }
+      if (nums[mid] === target) {
+        return mid;
+      } else if (nums[mid] < target) {
+        left = mid + 1;
+      } else {
+        right = mid - 1;
+      }
+    }
   
-//     return left;
-//   }
+    return left;
+  }
   
-//   // Test case
-//   const nums = [1, 3, 5, 6];
-//   const target = 5;
-//   const index = searchInsert(nums, target);
-//   console.log(index); // Output: 2
+  // Test case
+  const nums = [1, 3, 5, 6];
+  const target = 5;
+  const index = searchInsert(nums, target);
+  console.log(index); // Output: 2
 //***************************************************************************************** */
 // **Question 5**
 // You are given a large integer represented as an integer array digits, where each
@@ -226,26 +226,26 @@
 // Incrementing by one gives 123 + 1 = 124.
 // Thus, the result should be [1,2,4].
 //********************ANSWER -5************************************************************ */
-// function plusOne(digits) {
-//     const n = digits.length;
+function plusOne(digits) {
+    const n = digits.length;
   
-//     for (let i = n - 1; i >= 0; i--) {
-//       if (digits[i] < 9) {
-//         digits[i]++;
-//         return digits;
-//       } else {
-//         digits[i] = 0;
-//       }
-//     }
+    for (let i = n - 1; i >= 0; i--) {
+      if (digits[i] < 9) {
+        digits[i]++;
+        return digits;
+      } else {
+        digits[i] = 0;
+      }
+    }
   
-//     digits.unshift(1);
-//     return digits;
-//   }
+    digits.unshift(1);
+    return digits;
+  }
   
-//   // Test case
-//   const digits = [1, 2, 3];
-//   const result = plusOne(digits);
-//   console.log(result); // Output: [1, 2, 4]
+  // Test case
+  const digits = [1, 2, 3];
+  const result = plusOne(digits);
+  console.log(result); // Output: [1, 2, 4]
 //************************************************************************************** */
 // Question 6
 // Given a non-empty array of integers nums, every element appears twice except
@@ -258,20 +258,20 @@
 // Input: nums = [2,2,1]
 // Output: 1  
 //**************************ANSWER -6 ******************************************************** */
-// function singleNumber(nums) {
-//     let result = 0;
+function singleNumber(nums) {
+    let result = 0;
   
-//     for (const num of nums) {
-//       result ^= num;
-//     }
+    for (const num of nums) {
+      result ^= num;
+    }
   
-//     return result;
-//   }
+    return result;
+  }
   
-//   // Test case
-//   const nums = [2, 2, 1];
-//   const single = singleNumber(nums);
-//   console.log(single); // Output: 1
+  // Test case
+  const nums = [2, 2, 1];
+  const single = singleNumber(nums);
+  console.log(single); // Output: 1
 //********************************** ******************************************************** */
 // Question 7
 // You are given an inclusive range [lower, upper] and a sorted unique integer array
@@ -294,33 +294,33 @@
 // [51,74]
 // [76,99]
 //**********************************ANSWER - 7**************************************************** */
-// function findMissingRanges(nums, lower, upper) {
-//     const ranges = [];
+function findMissingRanges(nums, lower, upper) {
+    const ranges = [];
   
-//     let prev = lower - 1;
-//     for (let i = 0; i <= nums.length; i++) {
-//       let curr = (i === nums.length) ? upper + 1 : nums[i];
+    let prev = lower - 1;
+    for (let i = 0; i <= nums.length; i++) {
+      let curr = (i === nums.length) ? upper + 1 : nums[i];
   
-//       if (curr - prev > 1) {
-//         ranges.push(getRange(prev + 1, curr - 1));
-//       }
+      if (curr - prev > 1) {
+        ranges.push(getRange(prev + 1, curr - 1));
+      }
   
-//       prev = curr;
-//     }
+      prev = curr;
+    }
   
-//     return ranges;
-//   }
+    return ranges;
+  }
   
-//   function getRange(start, end) {
-//     return (start === end) ? `${start}` : `${start}->${end}`;
-//   }
+  function getRange(start, end) {
+    return (start === end) ? `${start}` : `${start}->${end}`;
+  }
   
-//   // Test case
-//   const nums = [0, 1, 3, 50, 75];
-//   const lower = 0;
-//   const upper = 99;
-//   const missingRanges = findMissingRanges(nums, lower, upper);
-//   console.log(missingRanges); // Output: [[2,2],[4,49],[51,74],[76,99]]  
+  // Test case
+  const nums = [0, 1, 3, 50, 75];
+  const lower = 0;
+  const upper = 99;
+  const missingRanges = findMissingRanges(nums, lower, upper);
+  console.log(missingRanges); // Output: [[2,2],[4,49],[51,74],[76,99]]  
 //********************************** ******************************************************** */
 // Question 8
 // Given an array of meeting time intervals where intervals[i] = [starti, endi],
