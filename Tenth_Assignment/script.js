@@ -20,21 +20,21 @@
 // Explanation: There is no x where 3x = (-1).
 
 //************************************ANSWER - 1********************************************************** */
-// function isPowerOfThree(n) {
-//     if (n <= 0) {
-//       return false;
-//     }
+function isPowerOfThree(n) {
+    if (n <= 0) {
+      return false;
+    }
   
-//     while (n % 3 === 0) {
-//       n /= 3;
-//     }
+    while (n % 3 === 0) {
+      n /= 3;
+    }
   
-//     return n === 1;
-//   }
+    return n === 1;
+  }
   
-//   console.log(isPowerOfThree(27)); // Output: true
-//   console.log(isPowerOfThree(0)); // Output: false
-//   console.log(isPowerOfThree(-1)); // Output: false
+  console.log(isPowerOfThree(27)); // Output: true
+  console.log(isPowerOfThree(0)); // Output: false
+  console.log(isPowerOfThree(-1)); // Output: false
   
 //******************************************************************************************************** */
 
@@ -63,25 +63,25 @@
 // Output: 1
 
 //************************************ANSWER - 2********************************************************** */
-// function lastRemaining(n) {
-//     let arr = Array.from({ length: n }, (_, i) => i + 1);
-//     let leftToRight = true;
+function lastRemaining(n) {
+    let arr = Array.from({ length: n }, (_, i) => i + 1);
+    let leftToRight = true;
   
-//     while (arr.length > 1) {
-//       if (leftToRight) {
-//         arr = arr.filter((_, index) => index % 2 !== 0); // Remove alternate numbers from left to right
-//       } else {
-//         arr = arr.filter((_, index) => index % 2 === 0).reverse(); // Remove alternate numbers from right to left
-//       }
+    while (arr.length > 1) {
+      if (leftToRight) {
+        arr = arr.filter((_, index) => index % 2 !== 0); // Remove alternate numbers from left to right
+      } else {
+        arr = arr.filter((_, index) => index % 2 === 0).reverse(); // Remove alternate numbers from right to left
+      }
   
-//       leftToRight = !leftToRight;
-//     }
+      leftToRight = !leftToRight;
+    }
   
-//     return arr[0];
-//   }
+    return arr[0];
+  }
   
-//   console.log(lastRemaining(9)); // Output: 6
-//   console.log(lastRemaining(1)); // Output: 1
+  console.log(lastRemaining(9)); // Output: 6
+  console.log(lastRemaining(1)); // Output: 1
   
 //******************************************************************************************************** */
 
@@ -103,22 +103,22 @@
 
 //************************************ANSWER - 3********************************************************** */
 
-// function printSubsets(set, subset = '', index = 0) {
-//     // Base case: If index is equal to the length of set, print the current subset
-//     if (index === set.length) {
-//       console.log(subset);
-//       return;
-//     }
+function printSubsets(set, subset = '', index = 0) {
+    // Base case: If index is equal to the length of set, print the current subset
+    if (index === set.length) {
+      console.log(subset);
+      return;
+    }
   
-//     // Recursive case 1: Include the current character in the subset
-//     printSubsets(set, subset + set[index], index + 1);
+    // Recursive case 1: Include the current character in the subset
+    printSubsets(set, subset + set[index], index + 1);
   
-//     // Recursive case 2: Exclude the current character from the subset
-//     printSubsets(set, subset, index + 1);
-//   }
+    // Recursive case 2: Exclude the current character from the subset
+    printSubsets(set, subset, index + 1);
+  }
   
-//   printSubsets("abc");
-//   printSubsets("abcd");
+  printSubsets("abc");
+  printSubsets("abcd");
   
 //******************************************************************************************************** */
 
@@ -134,18 +134,18 @@
 // Output :13
 
 //************************************ANSWER - 4********************************************************** */
-// function calculateLength(str) {
-//     // Base case: if the string is empty, return 0
-//     if (str === '') {
-//       return 0;
-//     }
+function calculateLength(str) {
+    // Base case: if the string is empty, return 0
+    if (str === '') {
+      return 0;
+    }
   
-//     // Recursive case: return 1 plus the length of the string without the first character
-//     return 1 + calculateLength(str.slice(1));
-//   }
+    // Recursive case: return 1 plus the length of the string without the first character
+    return 1 + calculateLength(str.slice(1));
+  }
   
-//   console.log(calculateLength("abcd")); // Output: 4
-//   console.log(calculateLength("GEEKSFORGEEKS")); // Output: 13
+  console.log(calculateLength("abcd")); // Output: 4
+  console.log(calculateLength("GEEKSFORGEEKS")); // Output: 13
   
 //******************************************************************************************************** */
 
@@ -168,27 +168,27 @@
 // The substrings are a, b, a and aba
 
 //************************************ANSWER - 5********************************************************** */
-// function countContiguousSubstrings(S) {
-//     let count = 0;
+function countContiguousSubstrings(S) {
+    let count = 0;
   
-//     // Iterate through each character in the string
-//     for (let i = 0; i < S.length; i++) {
-//       let charCount = 0;
+    // Iterate through each character in the string
+    for (let i = 0; i < S.length; i++) {
+      let charCount = 0;
       
-//       // Count the number of contiguous substrings ending at the current character
-//       for (let j = i; j < S.length; j++) {
-//         if (S[i] === S[j]) {
-//           charCount++;
-//         }
-//         count += charCount;
-//       }
-//     }
+      // Count the number of contiguous substrings ending at the current character
+      for (let j = i; j < S.length; j++) {
+        if (S[i] === S[j]) {
+          charCount++;
+        }
+        count += charCount;
+      }
+    }
   
-//     return count;
-//   }
+    return count;
+  }
   
-//   console.log(countContiguousSubstrings("abcab")); // Output: 7
-//   console.log(countContiguousSubstrings("aba")); // Output: 4
+  console.log(countContiguousSubstrings("abcab")); // Output: 7
+  console.log(countContiguousSubstrings("aba")); // Output: 4
   
 //******************************************************************************************************** */
 
